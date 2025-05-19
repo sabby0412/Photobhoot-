@@ -1,29 +1,25 @@
-const video = document.querySelector('video');
-const canvas = document.querySelector('canvas');
-const context = canvas.getContext('2d');
-const captureButton = document.getElementById('capture');
-const filterSelect = document.getElementById('filter');
-const stripLayout = document.getElementById('layout');
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("video");
+  const canvas = document.getElementById("canvas");
+  const context = canvas.getContext("2d");
+  const captureBtn = document.getElementById("captureBtn");
 
-navigator.mediaDevices.getUserMedia({ video: true })
-  .then(stream => {
-    video.srcObject = stream;
-    video.play();
-  })
-  .catch(err => {
-    alert("Camera access denied or not available.");
-    console.error("Error accessing camera:", err);
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    alert("Your browser does not support camera access.");
+    return;
+  }
+
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then((stream) => {
+      video.srcObject = stream;
+      video.play();
+    })
+    .catch((err) => {
+      console.error("Camera error:", err);
+      alert("Camera access denied or not available. Please allow camera access in your browser settings.");
+    });
+
+  captureBtn.addEventListener("click", () => {
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
   });
-
-captureButton.addEventListener('click', () => {
-  context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-  const filter = filterSelect.value;
-  canvas.style.filter = filter;
-
-  const image = canvas.toDataURL('image/png');
-  const link = document.createElement('a');
-  link.href = image;
-  link.download = 'photobooth.png';
-  link.click();
 });
