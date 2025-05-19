@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coquette Vintage Photobooth</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1 class="vintage-title">Vintage Coquette Photobooth</h1>
+
+  <div class="booth">
+    <video autoplay></video>
+    <canvas width="400" height="300"></canvas>
+  </div>
+
+  <div>
+    <label for="filter">Choose a Filter:</label>
+    <select id="filter">
+      <option value="none">None</option>
+      <option value="grayscale(100%)">Grayscale</option>
+      <option value="sepia(100%)">Sepia</option>
+      <option value="contrast(150%)">High Contrast</option>
+    </select>
+
+    <label for="layout">Photo Strip:</label>
+    <select id="layout">
+      <option value="1">Single</option>
+      <option value="2">Double</option>
+      <option value="3">Triple</option>
+    </select>
+
+    <button id="capture">📸 Take Photo</button>
+  </div>
+
+  <div class="layout-preview">
+    <div class="strip"></div>
+    <div class="strip"></div>
+    <div class="strip"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
