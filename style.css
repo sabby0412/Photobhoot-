@@ -1,90 +1,77 @@
 body {
-  font-family: 'Playfair Display', serif;
-  background: linear-gradient(to bottom, #fff0f6, #fff5f8);
-  color: #5C1A1B;
+  background-color: #ffeef2;
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  color: #5a2a2a;
+}
+
+.container {
   text-align: center;
-  padding: 2em;
+  padding: 20px;
 }
 
-.vintage-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3em;
-  color: #800020;
-  margin-bottom: 1em;
-  text-shadow: 1px 1px #fff;
+h1 {
+  font-size: 2.5rem;
+  color: #7b2e2e;
 }
 
-.booth {
-  margin: 0 auto;
-  position: relative;
-  width: 400px;
-  height: 300px;
-  border: 5px dashed #DEB6AB;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 0 20px #800020;
-  overflow: hidden;
+.main-area {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+.camera-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 video, canvas {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: 320px;
+  height: 240px;
+  border: 5px dotted #c28383;
+  background: #000;
 }
 
-canvas {
-  z-index: 2;
-}
-
-button {
-  margin: 1em;
-  padding: 10px 20px;
-  background: #EFD3D7;
+.controls button,
+.review-buttons button {
+  margin-top: 10px;
+  margin-right: 5px;
+  background-color: #e0a3a3;
   border: none;
-  border-radius: 10px;
-  font-size: 1em;
-  color: #800020;
-  box-shadow: 2px 2px 10px #5C1A1B;
-  transition: background 0.3s ease-in-out;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-button:hover {
-  background: #DEB6AB;
+.instruction {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
-select {
-  padding: 0.5em;
-  border-radius: 10px;
-  background: #fff0f6;
-  color: #5C1A1B;
-  border: 2px solid #800020;
-  font-weight: bold;
+.strip-section {
+  text-align: left;
 }
 
-.fade-in {
-  opacity: 0;
-  animation: fadeIn ease-in 2s forwards;
-}
-
-.layout-preview {
-  margin-top: 1em;
+#photoStrip {
   display: flex;
-  justify-content: center;
-  gap: 5px;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid #7b2e2e;
+  padding: 10px;
+  background: #fff;
 }
 
-.strip {
-  width: 30px;
-  height: 60px;
-  background: #DEB6AB;
-  border: 2px solid #800020;
+#photoStrip img {
+  width: 100px;
+  border: 4px solid #5a2a2a;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+.hidden {
+  display: none;
 }
